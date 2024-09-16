@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 100px auto;
+            text-align: center;
+        }
+        input {
+            margin: 5px;
+            padding: 10px;
+            font-size: 18px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 18px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Simple Calculator</h3>
+        <div>
+            <label for="value1">Value 1 : </label>
+            <input type="number" id="value1" placeholder="Enter first value">
+        </div>
+        <div>
+            <label for="value2">Value 2 : </label>
+            <input type="number" id="value2" placeholder="Enter second value">
+        </div>
+        <div>
+            <button onclick="add()" name="add">ADDITION</button>
+            <button onclick="sub()" name="sub">SUBTRACT</button>
+            <button onclick="mul()" name="mul">MULTIPLY</button>
+            <button onclick="div()"name="div">DIVISION</button>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function add() {
+            var value1 = parseFloat(document.getElementById('value1').value);
+            var value2 = parseFloat(document.getElementById('value2').value);
+            var result = value1 + value2;
+            document.getElementById('result').innerHTML = "Addition of "+ value1+" and "+value2+" is "+result;
+        }
+
+        function sub() {
+            var value1 = parseFloat(document.getElementById('value1').value);
+            var value2 = parseFloat(document.getElementById('value2').value);
+            var result = value1 - value2;
+            document.getElementById('result').innerHTML =  "Subtraction of "+ value1+" and "+value2+" is "+result;
+        }
+
+        function mul() {
+            var value1 = parseFloat(document.getElementById('value1').value);
+            var value2 = parseFloat(document.getElementById('value2').value);
+            var result = value1 * value2;
+            document.getElementById('result').innerHTML =  "Multiplication of "+ value1+" and "+value2+" is "+result;
+        }
+
+        function div() {
+            var value1 = parseFloat(document.getElementById('value1').value);
+            var value2 = parseFloat(document.getElementById('value2').value);
+            if (value2 !== 0) {
+                var result = value1 / value2;
+                document.getElementById('result').innerHTML = "Division of "+ value1+" and "+value2+" is "+result;
+            } else {
+                document.getElementById('result').innerHTML = "Cannot divide by zero!";
+            }
+        }
+    </script>
+</body>
+</html>
