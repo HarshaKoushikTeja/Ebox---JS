@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Count for a Month</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        input {
+            margin: 10px 0;
+            padding: 5px;
+            width: 80%;
+            font-size: 18px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Event count for a month</h2>
+        <div>
+            <label for="event1">Birthday party event : </label>
+            <input type="number" id="event1" placeholder="Enter count">
+        </div>
+        <div>
+            <label for="event2">Engagement parties event : </label>
+            <input type="number" id="event2" placeholder="Enter count">
+        </div>
+        <div>
+            <label for="event3">Corporate event : </label>
+            <input type="number" id="event3" placeholder="Enter count">
+        </div>
+        <div>
+            <label for="event4">Social Gathering event : </label>
+            <input type="number" id="event4" placeholder="Enter count">
+        </div>
+        <div>
+            <button id="button" onclick="maxevent()">Submit</button>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function maxevent() {
+            // Get the input values
+            var event1 = parseInt(document.getElementById('event1').value) || 0;
+            var event2 = parseInt(document.getElementById('event2').value) || 0;
+            var event3 = parseInt(document.getElementById('event3').value) || 0;
+            var event4 = parseInt(document.getElementById('event4').value) || 0;
+
+            // Determine the maximum event count
+            var max = Math.max(event1, event2, event3, event4);
+            var maxEvent = '';
+
+            // Determine which event has the maximum count
+            if (max === event1) {
+                maxEvent = 'Birthday party event';
+            } else if (max === event2) {
+                maxEvent = 'Engagement parties event';
+            } else if (max === event3) {
+                maxEvent = 'Corporate event';
+            } else if (max === event4) {
+                maxEvent = 'Social Gathering event';
+            }
+
+            // Display the result
+            document.getElementById('result').innerHTML = "Maximum number of event occurred in this month is " + maxEvent;
+        }
+    </script>
+
+</body>
+</html>
